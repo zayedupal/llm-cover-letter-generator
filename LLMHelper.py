@@ -10,15 +10,15 @@ AVAILABLE_MODELS_GGUF = {
         "model_type": "marcoroni"
     },
     "TheBloke/Mistral-7B-Instruct-v0.2-GGUF": {
-        "model_file": "mistral-7b-instruct-v0.2.Q5_K_M.gguf",
+        "model_file": "mistral-7b-instruct-v0.2.Q4_K_M.gguf",
         "model_type": "mistral"
     },
     "TheBloke/zephyr-7B-beta-GGUF": {
-        "model_file": "zephyr-7b-beta.Q5_K_M.gguf",
+        "model_file": "zephyr-7b-beta.Q4_K_M.gguf",
         "model_type": "zephyr"
     },
     "TheBloke/una-cybertron-7B-v2-GGUF": {
-        "model_file": "una-cybertron-7b-v2-bf16.Q5_K_M.gguf",
+        "model_file": "una-cybertron-7b-v2-bf16.Q4_K_M.gguf",
         "model_type": "cybertron"
     },
 
@@ -77,9 +77,6 @@ def generate_cover_letter_openai(job_description, resume, selected_model, openai
         input_variables=["job_description", "resume"]
     )
 
-    # model = OpenAI(openai_api_key=openai_key, max_tokens=-1)
-    print(f'openai key: {openai_key}')
-    # model = OpenAI(model_name=selected_model, openai_api_key="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")
     model = OpenAI(model_name=selected_model)
 
     _input = prompt.format(job_description=job_description, resume=resume)
