@@ -1,0 +1,5 @@
+streamlit
+huggingface-hub
+ctransformers
+langchain
+openai==0.28.1
