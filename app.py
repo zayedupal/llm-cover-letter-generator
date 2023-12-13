@@ -88,7 +88,7 @@ with input_col:
             st.button("Generate Cover Letter", key='open_source_gen_key', on_click=generate_open_source,
                       disabled=st.session_state.running)
 
-        elif llm_tab == "Open AI Models":
+        elif llm_tab == "Open AI LLMs":
             cover_letter_generator = None
             st.session_state.cover_letter_stream = ""
             selected_model = st.selectbox("Select Open AI Model", options=LLMHelper.AVAILABLE_MODELS_OPENAI,
