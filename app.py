@@ -44,14 +44,18 @@ def generate_response(cover_letter_gen, start_time):
                         generated_text_placeholder.write(st.session_state.cover_letter_stream)
                     st.write(f"generated words: {len(st.session_state.cover_letter_stream.split())}")
                     st.write(f"generation time: {round(time.time() - start_time, 2)} seconds")
+                    st.write(
+                        f"tokens per second: {round(len(st.session_state.cover_letter_stream.split())/(round(time.time() - start_time, 2)))} seconds")
 
 
 if 'running' not in st.session_state:
     st.session_state.running = False
 
 st.session_state.cover_letter_stream = ""
-st.set_page_config(page_title='Cover Letter Generator', layout="wide")
-st.markdown("## Cover Letter Generator")
+st.set_page_config(page_title='LLM Cover Letter Generator', layout="wide")
+st.markdown("## Cover Letter Generator using Large Language Models (LLM)")
+st.info("Please be patient with the open source LLM models, as they are running on a CPU on the server.\n "
+        "Average generation time around 5 mins.")
 info = st.expander("Information")
 info.write(f"This project aims to:\n"
            f"- Explore various open-source Large Language Models (LLMs).\n"

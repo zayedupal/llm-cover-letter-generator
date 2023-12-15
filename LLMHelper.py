@@ -13,15 +13,10 @@ AVAILABLE_MODELS_GGUF = {
         "model_file": "mistral-7b-instruct-v0.2.Q4_K_M.gguf",
         "model_type": "mistral"
     },
-    "TheBloke/zephyr-7B-beta-GGUF": {
-        "model_file": "zephyr-7b-beta.Q4_K_M.gguf",
-        "model_type": "zephyr"
-    },
-    "TheBloke/una-cybertron-7B-v2-GGUF": {
-        "model_file": "una-cybertron-7b-v2-bf16.Q4_K_M.gguf",
-        "model_type": "cybertron"
-    },
-
+    "TheBloke/LeoScorpius-7B-GGUF": {
+        "model_file": "leoscorpius-7b.Q4_K_M.gguf",
+        "model_type": "leoscorpius"
+    }
 }
 
 AVAILABLE_MODELS_OPENAI = [
@@ -55,7 +50,8 @@ def generate_cover_letter_open_source(job_description, resume, selected_model, c
                                                reset=True,
                                                stream=True,
                                                # top_k=2,
-                                               temperature=0.5
+                                               temperature=0.5,
+                                               threads=(os.cpu_count()//2)
                                                )
 
     llm_response = llm(prompt)
