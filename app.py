@@ -54,18 +54,13 @@ if 'running' not in st.session_state:
 st.session_state.cover_letter_stream = ""
 st.set_page_config(page_title='LLM Cover Letter Generator', layout="wide")
 st.markdown("## Cover Letter Generator using Large Language Models (LLM)")
-st.info("Please be patient with the open source LLM models, as they are running on a CPU on the server.\n "
-        "Average generation time around 5 mins.")
-info = st.expander("Information")
-info.write(f"This project aims to:\n"
-           f"- Explore various open-source Large Language Models (LLMs).\n"
-           f"- Compare them to OpenAI models for performance. \n"
-           f"- Highlight benefits of open-source LLMs: \n"
-           f"  - Faster generation on OpenAI models due to non-local execution.\n"
-           f"  - Run open-source models on CPU with 10GB RAM (Around 5-min generation time).\n"
-           f"  - Significantly faster generation on GPUs. \n"
-           f"  - Free of cost and user-data ownership.\n\n"
-           f"Checkout my profile: https://zayedupal.github.io")
+st.info("This project aims to Explore various open-source Large Language Models (LLMs) and "
+        "compare them to OpenAI models.  \n"
+        "Please be patient with the open source LLM models, as they are running without GPU.  \n "
+        "Average generation time around 5 minutes.  \n"
+        "The Open AI models are faster, but needs API key as they are hosted by Open AI.  \n"
+        "Checkout my profile: https://zayedupal.github.io"
+        )
 
 input_col, output_col = st.columns(2)
 
