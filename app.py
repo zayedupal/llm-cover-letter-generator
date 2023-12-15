@@ -45,7 +45,7 @@ def generate_response(cover_letter_gen, start_time):
                     st.write(f"generated words: {len(st.session_state.cover_letter_stream.split())}")
                     st.write(f"generation time: {round(time.time() - start_time, 2)} seconds")
                     st.write(
-                        f"tokens per second: {round(len(st.session_state.cover_letter_stream.split())/(round(time.time() - start_time, 2)))} seconds")
+                        f"tokens per second: {round(len(st.session_state.cover_letter_stream.split())/(round(time.time() - start_time, 2)))}")
 
 
 if 'running' not in st.session_state:
@@ -92,6 +92,6 @@ with input_col:
             st.session_state.cover_letter_stream = ""
             selected_model = st.selectbox("Select Open AI Model", options=LLMHelper.AVAILABLE_MODELS_OPENAI,
                                           disabled=st.session_state.running)
-            open_ai_key = st.text_input("Enter your open ai API key")
+            open_ai_key = st.text_input("Enter your open ai API key", type='password')
             st.button("Generate Cover Letter", key='open_ai_gen_key', disabled=st.session_state.running,
                       on_click=generate_openai)
