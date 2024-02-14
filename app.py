@@ -1,7 +1,7 @@
 import time
 import streamlit as st
 import LLMHelper
-
+import streamlit.components.v1 as components
 
 def generate_open_source():
     with output_col:
@@ -53,6 +53,11 @@ if 'running' not in st.session_state:
 
 st.session_state.cover_letter_stream = ""
 st.set_page_config(page_title='LLM Cover Letter Generator', layout="wide")
+# microsoft clarity analytics tracking code
+with open("ms_clarity_tracking.html", "r") as f:
+    html_code = f.read()
+    components.iframe(html_code, height=0)
+
 st.markdown("## Cover Letter Generator using Large Language Models (LLM)")
 st.info("This project aims to Explore various open-source Large Language Models (LLMs) and "
         "compare them to OpenAI models.  \n"
